@@ -1,11 +1,12 @@
-public class CreditCard extends BankCard {
-    public CreditCard(double balance) {
+public class CreditCardInterest extends CreditCard {
+    public CreditCardInterest(double balance) {
         super(balance);
     }
 
     private final double creditLimit = 10_000; // Кредитный лимит устанавливается банком
     private double creditBalance = creditLimit; // Кредитные средства
     private double balance; // Собственные средства
+    private double interest;
 
     @Override
     public void topUp(double sum) {
@@ -13,15 +14,18 @@ public class CreditCard extends BankCard {
             double difference = creditLimit - creditBalance;
             if (sum <= difference) {
                 creditBalance = creditBalance + sum;
+                interest = sum * 0.005 / 100; // Расчёт накопления 0.005% от суммы пополнения
             }
             if (sum > difference) {
                 creditBalance = creditBalance + difference;
                 balance = balance + sum - difference;
+                interest = sum * 0.005 / 100;
             }
             System.out.println("Баланс кредитной карты пополнен на: " + sum);
             System.out.println(getAllBalance());
         } else if (creditBalance >= creditLimit) {
             balance = balance + sum;
+            interest = sum * 0.005 / 100;
             System.out.println("Баланс кредитной карты пополнен на: " + sum);
             System.out.println(getAllBalance());
         }
@@ -68,6 +72,7 @@ public class CreditCard extends BankCard {
     public String getAllBalance() {
         return "Основные средства кредитной карты:" +
                 "\nКредитные средства: " + creditBalance +
-                "\nСобственные средства: " + balance;
+                "\nСобственные средства: " + balance +
+                "\nНакопление: " + interest;
     }
 }

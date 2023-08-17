@@ -1,11 +1,12 @@
-public class CreditCard extends BankCard {
-    public CreditCard(double balance) {
+public class CreditCardCashBack extends CreditCard {
+    public CreditCardCashBack(double balance) {
         super(balance);
     }
 
     private final double creditLimit = 10_000; // Кредитный лимит устанавливается банком
     private double creditBalance = creditLimit; // Кредитные средства
     private double balance; // Собственные средства
+    private double cashBack;
 
     @Override
     public void topUp(double sum) {
@@ -30,11 +31,17 @@ public class CreditCard extends BankCard {
     @Override
     public boolean pay(double sum) {
         if (balance >= sum) {
+            if (sum > 5000) {
+                cashBack = sum * 5 / 100; // Расчёт кешбэк 5% от суммы оплаты более 5000
+            }
             balance = balance - sum;
             System.out.println("Оплата на сумму " + sum + " рублей прошла успешно.");
             System.out.println(getAllBalance());
             return true;
         } else if (balance < sum && sum <= (balance + creditBalance)) {
+            if (sum > 5000) {
+                cashBack = sum * 5 / 100;
+            }
             double difference = sum - balance;
             balance = balance + difference - sum;
             creditBalance = creditBalance - difference;
@@ -68,6 +75,7 @@ public class CreditCard extends BankCard {
     public String getAllBalance() {
         return "Основные средства кредитной карты:" +
                 "\nКредитные средства: " + creditBalance +
-                "\nСобственные средства: " + balance;
+                "\nСобственные средства: " + balance +
+                "\nНакопленный кешбэк: " + cashBack;
     }
 }
