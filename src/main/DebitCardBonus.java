@@ -11,11 +11,11 @@ public class DebitCardBonus extends DebitCard {
     private double balance;
     private double bonus;
 
-    DebitCard debitCard = new DebitCard(balance);
-
     @Override
     public void topUp(double sum) {
-        debitCard.topUp(sum);
+        balance = balance + sum;
+        System.out.printf("Баланс дебетовой карты пополнен на: %s%n", sum);
+        System.out.printf("Остаток на дебетовой карте: %s%n", balance);
     }
 
     @Override

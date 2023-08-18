@@ -1,6 +1,6 @@
 /**
  * Класс бонусной дебетовой карты "Потенциальный кэшбэк 5%"
- * Потенциальный кешбэк 5% начисляется при условии покупки больше 5 000 (Пять тысяч) у.е.
+ * Потенциальный кешбэк 5% начисляется при условии покупки больше 5 000 (Пять тысяч) у.е. с 5000.1
  */
 
 public class DebitCardCashBack extends DebitCard {
@@ -12,18 +12,18 @@ public class DebitCardCashBack extends DebitCard {
     private double balance;
     private double cashBack;
 
-    DebitCard debitCard = new DebitCard(balance);
-
     @Override
     public void topUp(double sum) {
-        debitCard.topUp(sum);
+        balance = balance + sum;
+        System.out.printf("Баланс дебетовой карты пополнен на: %s%n", sum);
+        System.out.printf("Остаток на дебетовой карте: %s%n", balance);
     }
 
     @Override
     public boolean pay(double sum) {
         if (balance >= sum) {
             if (sum > 5000) {
-                cashBack = sum * 5 / 100; // Расчёт кешбэк 5% от суммы оплаты более 5000
+                cashBack = sum * 5 / 100; // Расчёт кешбэк 5% от суммы оплаты более 5000 не включительно
             }
             balance = balance - sum;
             System.out.printf("Оплата на сумму %s рублей прошла успешно.%n", sum);
