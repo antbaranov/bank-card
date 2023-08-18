@@ -13,24 +13,12 @@ public class CreditCardBonus extends CreditCard {
     private double balance; // Собственные средства
     private double bonus; // Бонусы
 
+    CreditCard creditCard = new CreditCard(balance);
+
     @Override
     public void topUp(double sum) {
-        if (creditBalance < creditLimit) {
-            double difference = creditLimit - creditBalance;
-            if (sum <= difference) {
-                creditBalance = creditBalance + sum;
-            }
-            if (sum > difference) {
-                creditBalance = creditBalance + difference;
-                balance = balance + sum - difference;
-            }
-            System.out.println("Баланс кредитной карты пополнен на: " + sum);
-            System.out.println(getAllBalance());
-        } else if (creditBalance >= creditLimit) {
-            balance = balance + sum;
-            System.out.println("Баланс кредитной карты пополнен на: " + sum);
-            System.out.println(getAllBalance());
-        }
+
+        creditCard.topUp(sum);
     }
 
     @Override

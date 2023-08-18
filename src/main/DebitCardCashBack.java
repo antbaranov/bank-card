@@ -12,11 +12,11 @@ public class DebitCardCashBack extends DebitCard {
     private double balance;
     private double cashBack;
 
+    DebitCard debitCard = new DebitCard(balance);
+
     @Override
     public void topUp(double sum) {
-        balance = balance + sum;
-        System.out.println("Баланс дебетовой карты пополнен на: " + sum);
-        System.out.println(getAllBalance());
+        debitCard.topUp(sum);
     }
 
     @Override
