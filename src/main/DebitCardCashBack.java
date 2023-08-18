@@ -23,7 +23,7 @@ public class DebitCardCashBack extends DebitCard {
     public boolean pay(double sum) {
         if (balance >= sum) {
             if (sum > 5000) {
-                cashBack = sum * 5 / 100; // Расчёт кешбэк 5% от суммы оплаты более 5000
+                cashBack = sum * 5 / 100; // Расчёт кешбэк 5% от суммы оплаты более 5000 не включительно
             }
             balance = balance - sum;
             System.out.printf("Оплата на сумму %s рублей прошла успешно.%n", sum);
