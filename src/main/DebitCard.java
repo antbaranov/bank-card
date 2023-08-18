@@ -12,15 +12,15 @@ public class DebitCard extends BankCard {
     @Override
     public void topUp(double sum) {
         balance = balance + sum;
-        System.out.println("Баланс дебетовой карты пополнен на: " + sum);
-        System.out.println("Остаток на дебетовой карте: " + balance);
+        System.out.printf("Баланс дебетовой карты пополнен на: %s%n", sum);
+        System.out.printf("Остаток на дебетовой карте: %s%n", balance);
     }
 
     @Override
     public boolean pay(double sum) {
         if (balance >= sum) {
             balance = balance - sum;
-            System.out.println("Оплата на сумму " + sum + " рублей прошла успешно.");
+            System.out.printf("Оплата на сумму %s рублей прошла успешно.%n", sum);
             System.out.println(getAllBalance());
             return true;
         } else {
@@ -38,6 +38,6 @@ public class DebitCard extends BankCard {
 
     @Override
     public String getAllBalance() {
-        return "Баланс на дебетовой карте: " + balance;
+        return String.format("Баланс на дебетовой карте: %s", balance);
     }
 }

@@ -28,7 +28,7 @@ public class CreditCardCashBack extends CreditCard {
                 cashBack = sum * 5 / 100; // Расчёт кешбэк 5% от суммы оплаты более 5000
             }
             balance = balance - sum;
-            System.out.println("Оплата на сумму " + sum + " рублей прошла успешно.");
+            System.out.printf("Оплата на сумму %s рублей прошла успешно.%n", sum);
             System.out.println(getAllBalance());
             return true;
         } else if (balance < sum && sum <= (balance + creditBalance)) {
@@ -38,7 +38,7 @@ public class CreditCardCashBack extends CreditCard {
             double difference = sum - balance;
             balance = balance + difference - sum;
             creditBalance = creditBalance - difference;
-            System.out.println("Оплата на сумму " + sum + " рублей прошла успешно.");
+            System.out.printf("Оплата на сумму %s рублей прошла успешно.%n", sum);
             System.out.println(getAllBalance());
             return true;
         } else if (balance + creditBalance < sum) {
