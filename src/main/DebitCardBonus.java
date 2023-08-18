@@ -1,6 +1,7 @@
 /**
  * Класс бонусной дебетовой карты "Бонусные баллы в размере 1% от покупок"
  */
+
 public class DebitCardBonus extends DebitCard {
     public DebitCardBonus(double balance) {
 

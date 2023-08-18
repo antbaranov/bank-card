@@ -1,3 +1,8 @@
+/**
+ * Класс кредитной карты с потенциальным кешбэком.
+ * Начисляется кешбэк 5% от покупок при условии покупки больше 5 000 (Пять тысяч) у.е.
+ */
+
 public class CreditCardCashBack extends CreditCard {
     public CreditCardCashBack(double balance) {
         super(balance);

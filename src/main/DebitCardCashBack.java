@@ -1,6 +1,8 @@
 /**
  * Класс бонусной дебетовой карты "Потенциальный кэшбэк 5%"
+ * Потенциальный кешбэк 5% начисляется при условии покупки больше 5 000 (Пять тысяч) у.е.
  */
+
 public class DebitCardCashBack extends DebitCard {
     public DebitCardCashBack(double balance) {
 

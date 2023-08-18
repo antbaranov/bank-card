@@ -1,3 +1,7 @@
+/**
+ * Класс стандартной кредитной карты
+ */
+
 public class CreditCard extends BankCard {
     public CreditCard(double balance) {
         super(balance);

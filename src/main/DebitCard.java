@@ -1,6 +1,9 @@
+/**
+ * Класс стандартной дебетовой карты
+ */
+
 public class DebitCard extends BankCard {
     public DebitCard(double balance) {
-
         super(balance);
     }
 
@@ -35,6 +38,6 @@ public class DebitCard extends BankCard {
 
     @Override
     public String getAllBalance() {
-        return "Баланс на дебетовой карты: " + balance;
+        return "Баланс на дебетовой карте: " + balance;
     }
 }

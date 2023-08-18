@@ -1,6 +1,7 @@
 /**
- * Класс бонусной дебетовой карты "Накопление в размере 0.005% от суммы пополнений"
+ * Класс дебетовой карты "Накопление в размере 0.005% от суммы пополнений"
  */
+
 public class DebitCardInterest extends DebitCard {
     public DebitCardInterest(double balance) {
 

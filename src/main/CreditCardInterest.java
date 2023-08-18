@@ -1,3 +1,7 @@
+/**
+ * Класс кредитной карты с накоплением в размере 0.005% от суммы пополнений
+ */
+
 public class CreditCardInterest extends CreditCard {
     public CreditCardInterest(double balance) {
         super(balance);
@@ -6,7 +10,7 @@ public class CreditCardInterest extends CreditCard {
     private final double creditLimit = 10_000; // Кредитный лимит устанавливается банком
     private double creditBalance = creditLimit; // Кредитные средства
     private double balance; // Собственные средства
-    private double interest;
+    private double interest; // Накопление
 
     @Override
     public void topUp(double sum) {
@@ -60,6 +64,7 @@ public class CreditCardInterest extends CreditCard {
 
     @Override
     public double getBalance() {
+
         return balance;
     }
 

@@ -1,3 +1,7 @@
+/**
+ * Класс бонусной кредитной карты. Начисляются бонусы в размере 1% от покупок
+ */
+
 public class CreditCardBonus extends CreditCard {
     public CreditCardBonus(double balance) {
 
@@ -7,7 +11,7 @@ public class CreditCardBonus extends CreditCard {
     private final double creditLimit = 10_000; // Кредитный лимит устанавливается банком
     private double creditBalance = creditLimit; // Кредитные средства
     private double balance; // Собственные средства
-    private double bonus;
+    private double bonus; // Бонусы
 
     @Override
     public void topUp(double sum) {
