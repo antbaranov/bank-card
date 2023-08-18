@@ -25,12 +25,12 @@ public class CreditCardInterest extends CreditCard {
                 balance = balance + sum - difference;
                 interest = sum * 0.005 / 100;
             }
-            System.out.println("Баланс кредитной карты пополнен на: " + sum);
+            System.out.printf("Баланс кредитной карты пополнен на: %s%n", sum);
             System.out.println(getAllBalance());
         } else if (creditBalance >= creditLimit) {
             balance = balance + sum;
             interest = sum * 0.005 / 100;
-            System.out.println("Баланс кредитной карты пополнен на: " + sum);
+            System.out.printf("Баланс кредитной карты пополнен на: %s%n", sum);
             System.out.println(getAllBalance());
         }
     }
@@ -39,14 +39,14 @@ public class CreditCardInterest extends CreditCard {
     public boolean pay(double sum) {
         if (balance >= sum) {
             balance = balance - sum;
-            System.out.println("Оплата на сумму " + sum + " рублей прошла успешно.");
+            System.out.printf("Оплата на сумму %s рублей прошла успешно.%n", sum);
             System.out.println(getAllBalance());
             return true;
         } else if (balance < sum && sum <= (balance + creditBalance)) {
             double difference = sum - balance;
             balance = balance + difference - sum;
             creditBalance = creditBalance - difference;
-            System.out.println("Оплата на сумму " + sum + " рублей прошла успешно.");
+            System.out.printf("Оплата на сумму %s рублей прошла успешно.%n", sum);
             System.out.println(getAllBalance());
             return true;
         } else if (balance + creditBalance < sum) {

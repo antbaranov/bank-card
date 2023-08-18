@@ -23,7 +23,7 @@ public class DebitCardBonus extends DebitCard {
         if (balance >= sum) {
             bonus = sum * 1 / 100; // Расчёт бонус 1% от суммы оплаты
             balance = balance - sum;
-            System.out.println("Оплата на сумму " + sum + " рублей прошла успешно.");
+            System.out.printf("Оплата на сумму %s рублей прошла успешно.%n", sum);
             System.out.println(getAllBalance());
             return true;
         } else {

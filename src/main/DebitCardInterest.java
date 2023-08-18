@@ -15,7 +15,7 @@ public class DebitCardInterest extends DebitCard {
     public void topUp(double sum) {
         interest = sum * 0.005 / 100; // Расчёт накопления 0.005% от суммы пополнения
         balance = balance + sum;
-        System.out.println("Баланс дебетовой карты пополнен на: " + sum);
+        System.out.printf("Баланс дебетовой карты пополнен на: %s%n", sum);
         System.out.println(getAllBalance());
     }
 
@@ -23,7 +23,7 @@ public class DebitCardInterest extends DebitCard {
     public boolean pay(double sum) {
         if (balance >= sum) {
             balance = balance - sum;
-            System.out.println("Оплата на сумму " + sum + " рублей прошла успешно.");
+            System.out.printf("Оплата на сумму %s рублей прошла успешно.%n", sum);
             System.out.println(getAllBalance());
             return true;
         } else {
