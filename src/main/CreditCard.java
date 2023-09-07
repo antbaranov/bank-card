@@ -70,6 +70,7 @@ public class CreditCard extends BankCard {
 
     @Override
     public String getAllBalance() {
-        return String.format("Основные средства кредитной карты:\nКредитные средства: %s\nСобственные средства: %s", creditBalance, balance);
+        return String.format("Основные средства кредитной карты:\nКредитные средства: %s\nСобственные средства: %s",
+                creditBalance, balance);
     }
 }
